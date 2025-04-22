@@ -1,7 +1,7 @@
 # Wails Build Cross platform
 
 This repository provides an image container for Podman and Docker (or any other container engine as `nerdctl`)
-to build Wails applications for different platforms.
+to build [Wails](https://wails.io/) applications for different platforms.
 
 It is initially created to be able to compile Windows binaries and installer from Linux. But, it may also work
 inside Windows.
