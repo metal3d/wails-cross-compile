@@ -1,4 +1,4 @@
-FROM fedora-minimal:42
+FROM registry.fedoraproject.org/fedora-minimal:42
 
 RUN set -xe;\
   echo "fastestmirror=true" >> /etc/dnf/dnf.conf;\
