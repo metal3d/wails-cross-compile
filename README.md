@@ -8,19 +8,24 @@ inside Windows.
 
 ## Usage
 
-Go to the root of your application. Then launch the command:
+The OCI image can be pulled with Podman or Docker, or with others OCI runner:
+
+- `podman pull ghcr.io/metal3d/wails-build:main`
+- `docker pull ghcr.io/metal3d/wails-build:main`
+
+Then, go to the root of your application. Then launch the command:
 
 ```bash
 # With podman or docker
-podman run --rm -v $(pwd):/app:z --userns=keep-id ghcr.io/metal3d/wails-build linux
-podman run --rm -v $(pwd):/app:z --userns=keep-id ghcr.io/metal3d/wails-build windows
+podman run --rm -v $(pwd):/app:z --userns=keep-id ghcr.io/metal3d/wails-build:main linux
+podman run --rm -v $(pwd):/app:z --userns=keep-id ghcr.io/metal3d/wails-build:main windows
 # Warning, with Docker, the binary will have 1000:1000 ownership, you will need to fix this
 # with chown command
-docker run --rm -v $(pwd):/app:z ghcr.io/metal3d/wails-build linux
+docker run --rm -v $(pwd):/app:z ghcr.io/metal3d/wails-build:main linux
 
 # if you want to add options, for example to compress the binary with UPX
 # and create the installer with NSIS
-podman run --rm -v $(pwd):/app:z --userns=keep-id ghcr.io/metal3d/wails-build windows -nsis -upx
+podman run --rm -v $(pwd):/app:z --userns=keep-id ghcr.io/metal3d/wails-build:main windows -nsis -upx
 ```
 
 Binaries will be created on the `build/bin` directory of your project.
